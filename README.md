@@ -1,4 +1,4 @@
-# LocalDB
+# LocalDB - Version with new method crud.update()
 LocalDB is a NodeJS CRUD API. 
 It uses local file system for CRUD operation. It's a promise based API.
 
@@ -18,7 +18,7 @@ It uses local file system for CRUD operation. It's a promise based API.
 
 **INSERT** `localDB.insert(jsonObject, jsonObject)`
 
-**UPDATE** `localDB.update(jsonObject, jsonObject)`
+**UPDATE** `localDB.update(jsonObject, jsonObject, Array<string> (optional))`
 
 **DELETE** `localDB.remove(jsonObject)`
 
@@ -58,7 +58,7 @@ ldb.get()
 	.catch( (err) => console.log(err) );
 
 // update data
-ldb.update({"id": "abm"}, {name: "AbmSourav"}) // args: 1.where update'll made, 2.new data
+ldb.update({"id": "abm"}, {name: "AbmSourav"}, ["name", "description"]) // args: 1.where update'll made, 2.new data, 3. fields allowed to change, if empty it will change the object with the values entered in the second argument
 	.catch( err => console.log(err) );
 
 // Delete data
